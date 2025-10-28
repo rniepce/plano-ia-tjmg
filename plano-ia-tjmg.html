@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Plano de IA - TJMG</title>
+
+<!-- Manifesto e metadados para instalação -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#800020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<!-- Fontes e ícones -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --bordo-tjmg: #800020;
+  --cinza-escuro: #323232;
+  --cinza-medio: #777;
+  --branco: #fff;
+  --cinza-claro-bloco: #f0f0f0;
+  --amarelo-atencao: #ffc84d;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
+  min-height: 100vh;
+  background: linear-gradient(135deg,#f9f9f9,#e9e9e9);
+  color: var(--cinza-escuro);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  -webkit-text-size-adjust: 100%;
+}
+
+.plano-ia-container {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--branco);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.header-plano {
+  padding: 20px;
+  background: var(--cinza-claro-bloco);
+  border-bottom: 3px solid var(--bordo-tjmg);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.logo-tjmg {
+  width: 70px; height: 70px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Bras%C3%A3o_do_Tribunal_de_Justi%C3%A7a_de_Minas_Gerais.png') center/contain no-repeat;
+}
+.header-plano h1 {
+  margin: 0;
+  flex: 1;
+  color: var(--bordo-tjmg);
+  font-size: 1.7rem;
+}
+
+/* Navegação lateral */
+.main-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.eixos-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.eixo-tab {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--cinza-claro-bloco);
+  border: 2px solid var(--cinza-claro-bloco);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.eixo-tab i { font-size: 1.8rem; color: var(--bordo-tjmg); transition: color 0.25s; }
+.eixo-tab span { display:block; font-weight:700; color:var(--amarelo-atencao); }
+.eixo-tab.active {
+  background: var(--bordo-tjmg);
+  color: var(--branco);
+  border-color: var(--bordo-tjmg);
+  box-shadow: 0 4px 12px rgba(128,0,32,0.25);
+}
+.eixo-tab.active i { color: var(--amarelo-atencao); }
+
+/* Painéis */
+.eixos-content-wrapper { flex-grow:1; }
+.eixo-content-panel {
+  display: none;
+  padding: 20px;
+  background: var(--cinza-claro-bloco);
+  border-radius: 8px;
+  animation: fadeIn 0.4s ease;
+}
+.eixo-content-panel.active { display: block; }
+.eixo-content-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--bordo-tjmg);
+  border-bottom: 2px solid var(--amarelo-atencao);
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+}
+.eixo-content-panel ul { list-style: none; margin: 0; padding: 0; }
+.eixo-content-panel li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+}
+.eixo-content-panel li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--bordo-tjmg);
+}
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+/* Responsividade */
+@media(min-width:768px){
+  .main-content{flex-direction:row;gap:30px}
+  .eixos-nav{flex-basis:300px;margin-bottom:0}
+  .header-plano h1{font-size:2rem}
+}
+@media(max-width:767px){
+  .header-plano{flex-direction:column;text-align:center}
+  .header-plano h1{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<div class="plano-ia-container">
+  <header class="header-plano">
+    <div class="logo-tjmg"></div>
+    <h1>Plano Institucional de Inteligência Artificial - TJMG</h1>
+  </header>
+  <main class="main-content">
+    <!-- Navegação -->
+    <nav class="eixos-nav">
+      <button class="eixo-tab active" data-target="#eixo1"><i class="fas fa-cogs"></i><div><span>Eixo 1</span>Desenvolvimento Tecnológico e Automação Inteligente</div></button>
+      <button class="eixo-tab" data-target="#eixo2"><i class="fas fa-graduation-cap"></i><div><span>Eixo 2</span>Capacitação e Formação Interna</div></button>
+      <button class="eixo-tab" data-target="#eixo3"><i class="fas fa-bullhorn"></i><div><span>Eixo 3</span>Divulgação, Transparência e Comunicação</div></button>
+      <button class="eixo-tab" data-target="#eixo4"><i class="fas fa-handshake"></i><div><span>Eixo 4</span>Parcerias Estratégicas e Cooperação Técnica</div></button>
+      <button class="eixo-tab" data-target="#eixo5"><i class="fas fa-shield-alt"></i><div><span>Eixo 5</span>Governança, Conformidade e Uso Seguro de Dados</div></button>
+    </nav>
+    <!-- Painéis -->
+    <div class="eixos-content-wrapper">
+      <div class="eixo-content-panel active" id="eixo1">
+        <h2><i class="fas fa-cogs"></i>Eixo 1: Desenvolvimento Tecnológico e Automação Inteligente</h2>
+        <ul><li>Plataforma Assistente TJMG</li><li>Automação Processual Especializada</li><li>Transcritor de Audiências</li><li>Implantação do Berna (TJGO)</li><li>Serviços transversais de apoio</li><li>ODR (Online Dispute Resolution)</li><li>Acesso à base de jurisprudência interna</li><li>SEI IA</li><li>Atos normativos</li></ul>
+      </div>
+      <div class="eixo-content-panel" id="eixo2">
+        <h2><i class="fas fa-graduation-cap"></i>Eixo 2: Capacitação e Formação Interna</h2>
+        <ul><li>Programa de Facilitadores de IA</li><li>Formação técnica avançada</li></ul>
+      </div>
+      <div class="eixo-content-panel" id="eixo3">
+        <h2><i class="fas fa-bullhorn"></i>Eixo 3: Divulgação, Transparência e Comunicação</h2>
+        <ul><li>Portal de IA do TJMG</li><li>Comunicação institucional</li><li>Transparência e prestação de contas</li></ul>
+      </div>
+      <div class="eixo-content-panel" id="eixo4">
+        <h2><i class="fas fa-handshake"></i>Eixo 4: Parcerias Estratégicas e Cooperação Técnica</h2>
+        <ul><li>Universidades e centros de pesquisa: UFMG, UNICAMP, USP</li><li>Cooperação internacional — Estônia</li><li>Mercado e provedores de tecnologia</li><li>Cooperação institucional no ecossistema Justiça</li></ul>
+      </div>
+      <div class="eixo-content-panel" id="eixo5">
+        <h2><i class="fas fa-shield-alt"></i>Eixo 5: Governança, Conformidade e Uso Seguro de Dados Sensíveis</h2>
+        <ul><li>Uso de IA em processos sigilosos</li><li>Diretrizes de responsabilidade humana</li><li>Auditoria e rastreabilidade</li></ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Script de tabs e atualização -->
+<script>
+// Troca de abas com pointer events (bom em iOS)
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.eixo-tab');
+  const panels = document.querySelectorAll('.eixo-content-panel');
+  const activate = (tab) => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.querySelector(tab.dataset.target);
+    if (panel) panel.classList.add('active');
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('pointerup', () => activate(tab));
+  });
+});
+
+// Registrar Service Worker e tratar atualizações
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(reg => {
+    // Checa se há SW em espera (nova versão)
+    if (reg.waiting) showUpdatePrompt(reg);
+    // Monitora novas instalações
+    reg.addEventListener('updatefound', () => {
+      const newWorker = reg.installing;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          showUpdatePrompt(reg);
+        }
+      });
+    });
+  });
+
+  // Exibe popup para atualização
+  function showUpdatePrompt(registration) {
+    const div = document.createElement('div');
+    div.style.position = 'fixed';
+    div.style.bottom = '20px';
+    div.style.left = '50%';
+    div.style.transform = 'translateX(-50%)';
+    div.style.background = '#323232';
+    div.style.color = '#fff';
+    div.style.padding = '12px 20px';
+    div.style.borderRadius = '8px';
+    div.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    div.style.zIndex = '9999';
+    div.textContent = 'Conteúdo atualizado disponível. Atualizar? ';
+    const btn = document.createElement('button');
+    btn.textContent = 'Recarregar';
+    btn.style.marginLeft = '10px';
+    btn.style.background = '#ffc84d';
+    btn.style.color = '#000';
+    btn.style.border = 'none';
+    btn.style.padding = '6px 10px';
+    btn.style.borderRadius = '4px';
+    btn.style.cursor = 'pointer';
+    btn.onclick = () => {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      window.location.reload();
+    };
+    div.appendChild(btn);
+    document.body.appendChild(div);
+  }
+
+  // Comunicação com o Service Worker
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    console.log('Novo service worker ativo');
+  });
+}
+</script>
+</body>
+</html>
